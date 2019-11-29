@@ -43,7 +43,7 @@ public class PartidaDeXadrez {
 	//! NA FRENTE NEGA O TESTE
 	private void validandoPosicaoDeOrigem(Posicao posicao) {
 		if (!tabuleiro.existeUmaPeca(posicao)) {
-			throw new XadrezException("Não há uma peça na posição de origem.");
+			throw new XadrezException("Nao ha uma peca na posicao de origem.");
 		}
 	}
 	
