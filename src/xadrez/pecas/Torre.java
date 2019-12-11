@@ -14,5 +14,12 @@ public class Torre extends PecaDeXadrez{
 	public String toString() {
 		return "T";
 	}
+	
+	//DEFINIÇÃO DOS MOVIMENTOS DA PEÇA TORRE
+	@Override
+	public boolean[][] movimentosPossiveis() {
+		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+		return mat;
+	}
 
 }
