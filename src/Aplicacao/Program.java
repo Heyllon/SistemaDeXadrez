@@ -20,7 +20,7 @@ public class Program {
 		while (true) {
 			try {
 			UI.clearScreen(); //O COMANDO VAI LIMPAR A TELA TODA VEZ QUE RODAR O WHILE
-			UI.printTabuleiro(partidaDeXadrez.getPecas());
+			UI.printPartida(partidaDeXadrez);
 			System.out.println();
 			System.out.print("\nPosicao de Origem: ");
 			PosicaoXadrez origem = UI.leiaPosicaoDeXadrez(sc);
