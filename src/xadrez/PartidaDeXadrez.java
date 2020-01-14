@@ -98,6 +98,25 @@ public class PartidaDeXadrez {
 			pecasNoTabuleiro.remove(capturaPeca);
 			pecasCapturadas.add(capturaPeca);
 		}
+		
+		//ROOK PEQUENO
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() + 2) {
+			Posicao origemT = new Posicao(origem.getLinha(), origem.getColuna() + 3);
+			Posicao destinoT = new Posicao(origem.getLinha(), origem.getColuna() + 1);
+			PecaDeXadrez torre = (PecaDeXadrez)tabuleiro.removePeca(origemT);
+			tabuleiro.colocarPeca(torre, destinoT);
+			torre.aumentarMoveContagem();
+		}
+		
+		//ROOK GRANDE
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() - 2) {
+			Posicao origemT = new Posicao(origem.getLinha(), origem.getColuna() - 4);
+			Posicao destinoT = new Posicao(origem.getLinha(), origem.getColuna() - 1);
+			PecaDeXadrez torre = (PecaDeXadrez)tabuleiro.removePeca(origemT);
+			tabuleiro.colocarPeca(torre, destinoT);
+			torre.aumentarMoveContagem();
+		}
+		
 		return capturaPeca;
 	}
 	
@@ -109,6 +128,24 @@ public class PartidaDeXadrez {
 			tabuleiro.colocarPeca(capturaPeca, destino);
 			pecasCapturadas.remove(capturaPeca);
 			pecasNoTabuleiro.add(capturaPeca);
+		}
+		
+		//ROOK PEQUENO
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() + 2) {
+			Posicao origemT = new Posicao(origem.getLinha(), origem.getColuna() + 3);
+			Posicao destinoT = new Posicao(origem.getLinha(), origem.getColuna() + 1);
+			PecaDeXadrez torre = (PecaDeXadrez)tabuleiro.removePeca(destinoT);
+			tabuleiro.colocarPeca(torre, origemT);
+			torre.diminuirMoveContagem();
+		}
+		
+		//ROOK GRANDE
+		if (p instanceof Rei && destino.getColuna() == origem.getColuna() - 2) {
+			Posicao origemT = new Posicao(origem.getLinha(), origem.getColuna() - 4);
+			Posicao destinoT = new Posicao(origem.getLinha(), origem.getColuna() - 1);
+			PecaDeXadrez torre = (PecaDeXadrez)tabuleiro.removePeca(destinoT);
+			tabuleiro.colocarPeca(torre, origemT);
+			torre.diminuirMoveContagem();
 		}
 	}
 	
@@ -199,7 +236,7 @@ public class PartidaDeXadrez {
 		coloqueNovaPeca('b', 1, new Cavalo(tabuleiro, Color.WHITE));
 		coloqueNovaPeca('c', 1, new Bispo(tabuleiro, Color.WHITE));
 		coloqueNovaPeca('d', 1, new Rainha(tabuleiro, Color.WHITE));
-		coloqueNovaPeca('e', 1, new Rei(tabuleiro, Color.WHITE));
+		coloqueNovaPeca('e', 1, new Rei(tabuleiro, Color.WHITE, this)); //THIS REALIZANDO A AUTO REFERENCIA 
 		coloqueNovaPeca('f', 1, new Bispo(tabuleiro, Color.WHITE));
 		coloqueNovaPeca('g', 1, new Cavalo(tabuleiro, Color.WHITE));
 		coloqueNovaPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
@@ -216,7 +253,7 @@ public class PartidaDeXadrez {
 		coloqueNovaPeca('b', 8, new Cavalo(tabuleiro, Color.BLACK));
 		coloqueNovaPeca('c', 8, new Bispo(tabuleiro, Color.BLACK));
 		coloqueNovaPeca('d', 8, new Rainha(tabuleiro, Color.BLACK));
-		coloqueNovaPeca('e', 8, new Rei(tabuleiro, Color.BLACK));
+		coloqueNovaPeca('e', 8, new Rei(tabuleiro, Color.BLACK, this));
 		coloqueNovaPeca('f', 8, new Bispo(tabuleiro, Color.BLACK));
 		coloqueNovaPeca('g', 8, new Cavalo(tabuleiro, Color.BLACK));
 		coloqueNovaPeca('h', 8, new Torre(tabuleiro, Color.BLACK));
